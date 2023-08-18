@@ -1,7 +1,9 @@
 import React , {useState} from "react";
 
 const Tabs = ({list}) =>{
-    const [tab, setTab] = useState('');
+    const [tab, setTab] = useState(()=>{
+        return `${list[0].title} ${list[0].content}`;
+    });
     return (
         <div className="tabs">
             <ul>
@@ -11,7 +13,7 @@ const Tabs = ({list}) =>{
                     })
                 }
             </ul>
-            {tab && <p>Content for {tab}</p>}
+            <p>Content for {tab}</p>
         </div>
     )
 }
